@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private Dashboard</title>
+</head>
+<body>
+  <h1>Dashboard</h1>
+  <p id="welcomeMsg"></p>
+  <button onclick="logout()">Log Out</button>
+
+  <script>
+    // Check if user is logged in
+    const user = JSON.parse(localStorage.getItem("sais_loggedin"));
+
+    if (!user) {
+      // Not logged in → redirect back to login page
+      window.location.href = "SAIS.html";
+    } else {
+      // Logged in → show their name
+      document.getElementById("welcomeMsg").textContent = "Hello, " + user.name;
+    }
+
+    function logout(){
+      localStorage.removeItem("sais_loggedin");
+      window.location.href = "SAIS.html";
+    }
+  </script>
+</body>
+</html>
