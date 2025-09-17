@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Private Dashboard</title>
+  <title>Dashboard</title>
 </head>
 <body>
   <h1>Dashboard</h1>
@@ -11,21 +11,21 @@
   <button onclick="logout()">Log Out</button>
 
   <script>
-    // Check if user is logged in
     const user = JSON.parse(localStorage.getItem("sais_loggedin"));
 
     if (!user) {
-      // Not logged in → redirect back to login page
+      // ❌ Not logged in → back to SAIS.html
       window.location.href = "SAIS.html";
     } else {
-      // Logged in → show their name
+      // ✅ Logged in → show welcome
       document.getElementById("welcomeMsg").textContent = "Hello, " + user.name;
     }
 
     function logout(){
       localStorage.removeItem("sais_loggedin");
-      window.location.href = "SAIS.html";
+      window.location.href = "SAIS.html"; // go back to homepage
     }
   </script>
 </body>
 </html>
+
